@@ -1,3 +1,3 @@
 # 26.-MathTraining
 
-Small application for kids - math traininga app
+Small application for kids - math training app
