@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Trainer for Alex</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <section id="wrapper">
+        <img id="header" src="./images/header.png" alt="">
+        <div class="container">
+            <div class="holder" id="sum">
+                <h1>Събиране на числа</h1>
+                <p>Събирането е първото от четирите прости математически действия, които са в основата на аритметиката.
+                    Тъй като умножението е асоциативна операция, т.е. резултатът не зависи от мястото на участниците в
+                    нея, всеки участник се нарича еднакво – събираемо. Свойствата на събирането са разместително и
+                    съдружително.</p>
+                <h3>Разместително свойство</h3>
+                <p>Разместителното свойство на събирането гласи, че ако имаме някакъв израз, например a+b+c, то тогава е
+                    изпълнено, че: a+b+c = a+c+b = b+a+c = b+c+a = c+a+b = c+b+a</p>
+                <h3>Съдружително свойство</h3>
+                <p>Съдружителното свойство на събирането гласи, че ако имаме някакъв израз, например a+b+c, то тогава е
+                    изпълнено, че: a+b+c = (a+b)+c = a+(b+c) = (a+c)+b</p>
+                <form class="calculator">
+                    <h3>Събираемо:</h3>
+                    <input id="sum-one" type="text" name="sum-one">
+                    <h3>+</h3>
+                    <h3>Събираемо:</h3>
+                    <input id="sum-two" type="text" name="sum-two">
+                    <hr class="line">
+                    <label>Сбор - въведи сбор и виж дали отговорът ти е правилен:</label><br>
+                    <div class="result-container">
+                    <input id="sum-result" name="sum-result" type="text">
+                    <button id="sum-button" type="button">Предай отговор</button><br>
+                    </div>
+                    <label>Верен отговор:</label><br>
+                    <input id="sum-answer" name="sum-answer" type="text" disabled>
+                    <div id="sum-result-hidden" style="display: none;"></div>
+                    <div class="sign">+</div>
+                </form>
+            </div>
+
+            <div class="holder" id="substract">
+                <h1>Изваждане на числа</h1>
+                <p>Първото число (a), т.е. това, от което ще бъде изваждано, се нарича умаляемо. Второто число (b), т.е.
+                    това, което изваждаме, се нарича умалител. Резултатът от изваждането (x) на умаляемото (a) и
+                    умалителя (b) се нарича разлика.</p>
+                <div class="ul">
+                    <ul>
+                        <li>Ако умаляемото е по-голямо от умалителя, разликата е положително число (a > b, a - b > 0);
+                        </li>
+                        <li>Ако умаляемото е по-малко от умалителя, разликата е отрицателно число (a &lt; b, a - b &lt;
+                            0);</li>
+                        <li>Ако умаляемото е равно на умалителя, разликата е 0 (a = b, a - b = 0).</li>
+                    </ul>
+                </div>
+                <form class="calculator">
+                    <h3>Умаляемо:</h3>
+                    <input class="num-one" type="text" name="num-one">
+                    <h3>-</h3>
+                    <h3>Умалител:</h3>
+                    <input class="num-two" type="text" name="num-two">
+                    <hr class="line">
+                    <label>Разлика - въведи разлика и виж дали отговорът ти е правилен:</label><br>
+                    <div class="result-container">
+                        <input id="substr-result" name="result" type="text"><button class="submit" type="button">Предай
+                            отговор</button><br>
+                    </div>
+                    <label>Верен отговор:</label><br>
+                    <input id="substr-answer" name="answer" type="text" disabled>
+                    <div class="sign">-</div>
+                </form>
+            </div>
+
+            <div class="holder" id="multiply">
+                <h1>Умножение на числа</h1>
+                <p>Тъй като умножението е асоциативна операция, т.е. резултатът не зависи от мястото на участниците в
+                    нея, всички участници се наричат еднакво – множители.</p>
+                <p>Като знак за умножение се използват знаците:<br>
+                    • – средна точка<br>
+                    × – средно кръстче (да не се бърка с буквата x)<br>
+                    ✱ – средна звездичка</p>
+                <p>Резултатът от умножението се нарича произведение. Резултатът от умножение с 0 (нула) винаги е 0, а
+                    умножението на число с 1 (единица) дава същото число.</p>
+                <form class="calculator">
+                    <h3>Множител:</h3>
+                    <input class="num-one" type="text" name="num-one">
+                    <h3>.</h3>
+                    <h3>Множител:</h3>
+                    <input class="num-two" type="text" name="num-two">
+                    <hr class="line">
+                    <label>Произведение - въведи произведние и виж дали отговорът ти е правилен:</label><br>
+                    <div class="result-container">
+                        <input id="mult-result" name="result" type="text"><button class="submit" type="button">Предай
+                            отговор</button><br>
+                    </div>
+                    <label>Верен отговор:</label><br>
+                    <input id="mult-answer" name="answer" type="text" disabled>
+                    <div class="sign">*</div>
+                </form>
+            </div>
+
+            <div class="holder" id="devide">
+                <h1>Деление на числа</h1>
+                <p>С него се определя колко пъти едно число се съдържа в друго.[1] Означава се със знака : (двоеточие)
+                    или две точки с черта между тях ÷ (обелос). В калкулаторите и компютрите се използва знакът /
+                    (наклонена черта.</p>
+                <p>Резултатът (x) от делението на делимо и делител се нарича частно, което допълнително може да бъде
+                    дефинирано като „колко пъти делителят се съдържа в делимото като част“. Дeлeниeтo нa нyлa в
+                    мaтeмaтиĸaтa e дeлeниe, пpи ĸoeтo дeлитeлят e paвeн нa 0. Toвa дeлeниe нямa cмиcъл, пoнeжe в
+                    apитмeтиĸaтa вcяĸo чиcлo, yмнoжeнo по нyлa дaвa нyлa и пo тoзи нaчин вcяĸo чиcлo мoжe дa бъдe пpиeтo
+                    зa чacтнo. </p>
+                <form class="calculator">
+                    <h3>Делимо:</h3>
+                    <input class="num-one" type="text" name="num-one">
+                    <h3>:</h3>
+                    <h3>Делител:</h3>
+                    <input class="num-two" type="text" name="num-two">
+                    <hr class="line">
+                    <label>Частно - въведи частно и виж дали отговорът ти е правилен:</label><br>
+                    <div class="result-container">
+                        <input id="dev-result" name="result" type="text"><button class="submit" type="button">Предай
+                            отговор</button><br>
+                    </div>
+                    <label>Верен отговор:</label><br>
+                    <input id="dev-answer" name="answer" type="text" disabled>
+                    <div class="sign">:</div>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
