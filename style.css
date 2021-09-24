@@ -116,7 +116,9 @@ label {
 }
 
 #sum-result-hidden,
-#sub-result-hidden {
+#sub-result-hidden,
+#mult-result-hidden,
+#div-result-hidden {
     background: #333333;
     color: #ffd633;
     font-size: 25px;

@@ -19,6 +19,30 @@ window.addEventListener('load', () => {
     const subAnswer = document.getElementById('substr-answer');
     const subHidden = document.getElementById('sub-result-hidden');
 
+    // Multiply numbers
+    const multOne = document.getElementById('mult-one');
+    multOne.value = Math.floor(Math.random() * 9999) + 1;
+    const multTwo = document.getElementById('mult-two');
+    multTwo.value = Math.floor(Math.random() * 99) + 1;
+    const multBtn = document.getElementById('mult-button');
+    const multResult = document.getElementById('mult-result');
+    const multAnswer = document.getElementById('mult-answer');
+    const multHidden = document.getElementById('mult-result-hidden');
+
+    // Divide numbers
+    const divOne = document.getElementById('div-one');
+    divOne.value = Math.floor(Math.random() * 9999) + 1;
+    const divTwo = document.getElementById('div-two');
+    divTwo.value = Math.floor(Math.random() * 99) + 1;
+    const divBtn = document.getElementById('div-button');
+    const divResult = document.getElementById('div-result');
+    const divAnswer = document.getElementById('div-answer');
+    const divHidden = document.getElementById('div-result-hidden');
+    if (divTwo.value == 0) {
+        divTwo.value = Math.floor(Math.random() * 99) + 1;
+    }
+
+    // Sum numbers
     if (subBtn) {
         sumBtn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -70,6 +94,7 @@ window.addEventListener('load', () => {
         });
     }
 
+    // Substract numbers
     if (subBtn) {
         subBtn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -121,5 +146,110 @@ window.addEventListener('load', () => {
         });
     }
 
+    // Multiply numbers
+    if (multBtn) {
+        multBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            function sumNumbers() {
+                const result = Number(multOne.value) * Number(multTwo.value);
+                const answer = Number(multResult.value);
+
+                if (isNaN(multResult.value) || multResult.value === '') {
+                    return notify(`Подал си неправилни или липсващи данни! Въведи цифри!`);
+                }
+
+                multAnswer.disabled = false;
+                if (result === answer) {
+                    multHidden.style.display = "block";
+                    multAnswer.value = result.toString();
+                    multHidden.textContent = `Твоят отговор ${answer} е верен! Браво!`;
+                    setTimeout(() => {
+                        multOne.value = '';
+                        multTwo.value = '';
+                        multResult.value = '';
+                        multAnswer.value = '';
+                    }, 3000);
+                    setTimeout(() => {
+                        multHidden.style.display = "none";
+                        window.location.reload();
+                    }, 5000);
+                } else {
+                    multHidden.style.display = "block";
+                    multHidden.textContent = `Твоят отговор ${answer} е грешен! Опитай отново!`;
+                    multResult.value = '';
+                    multAnswer.value = '';
+                    setTimeout(() => {
+                        multHidden.style.display = "none";
+                    }, 7000);
+                }
+            }
+
+            sumNumbers();
+
+            function notify(message) {
+                multHidden.style.display = "block";
+                multHidden.textContent = message;
+                setTimeout(() => {
+                    multHidden.style.display = "none";
+                }, 5000);
+                return;
+            }
+        });
+    }
+
+    // Divide numbers
+    if (divBtn) {
+        divBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            function sumNumbers() {
+                const result = Number(divOne.value) / Number(divTwo.value);
+                const answer = Number(divResult.value);
+                if (divTwo.value == 0 && result == Infinity) {
+                    return notify('Не може да се дели с нула!\n Моля, натисни F5, за да презаредиш страницата!');
+                }
+                if (isNaN(divResult.value) || divResult.value === '') {
+                    return notify(`Подал си неправилни или липсващи данни! Въведи цифри!`);
+                }
+
+                divAnswer.disabled = false;
+                if (result === answer) {
+                    divHidden.style.display = "block";
+                    divAnswer.value = result.toString();
+                    divHidden.textContent = `Твоят отговор ${answer} е верен! Браво!`;
+                    setTimeout(() => {
+                        divOne.value = '';
+                        divTwo.value = '';
+                        divResult.value = '';
+                        divAnswer.value = '';
+                    }, 3000);
+                    setTimeout(() => {
+                        divHidden.style.display = "none";
+                        window.location.reload();
+                    }, 5000);
+                } else {
+                    divHidden.style.display = "block";
+                    divHidden.textContent = `Твоят отговор ${answer} е грешен! Опитай отново!`;
+                    divResult.value = '';
+                    divAnswer.value = '';
+                    setTimeout(() => {
+                        divHidden.style.display = "none";
+                    }, 7000);
+                }
+            }
+
+            sumNumbers();
+
+            function notify(message) {
+                divHidden.style.display = "block";
+                divHidden.textContent = message;
+                setTimeout(() => {
+                    divHidden.style.display = "none";
+                }, 5000);
+                return;
+            }
+        });
+    }
 });
 
