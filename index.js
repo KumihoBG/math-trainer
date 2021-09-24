@@ -61,10 +61,7 @@ window.addEventListener('load', () => {
                     sumAnswer.value = result.toString();
                     sumHidden.textContent = `Твоят отговор ${answer} е верен! Браво!`;
                     setTimeout(() => {
-                        sumOne.value = '';
-                        sumTwo.value = '';
-                        sumResult.value = '';
-                        sumAnswer.value = '';
+                        document.getElementById('calculator-sum').reset();
                     }, 3000);
                     setTimeout(() => {
                         sumHidden.style.display = "none";
@@ -113,10 +110,7 @@ window.addEventListener('load', () => {
                     subAnswer.value = result.toString();
                     subHidden.textContent = `Твоят отговор ${answer} е верен! Браво!`;
                     setTimeout(() => {
-                        subOne.value = '';
-                        subTwo.value = '';
-                        subResult.value = '';
-                        subAnswer.value = '';
+                        document.getElementById('calculator-sub').reset();
                     }, 3000);
                     setTimeout(() => {
                         subHidden.style.display = "none";
@@ -165,10 +159,7 @@ window.addEventListener('load', () => {
                     multAnswer.value = result.toString();
                     multHidden.textContent = `Твоят отговор ${answer} е верен! Браво!`;
                     setTimeout(() => {
-                        multOne.value = '';
-                        multTwo.value = '';
-                        multResult.value = '';
-                        multAnswer.value = '';
+                        document.getElementById('calculator-mult').reset();
                     }, 3000);
                     setTimeout(() => {
                         multHidden.style.display = "none";
@@ -235,10 +226,7 @@ window.addEventListener('load', () => {
                     divAnswer.value = result.toString();
                     divHidden.textContent = `Твоят отговор ${answer} е верен! Браво!`;
                     setTimeout(() => {
-                        divOne.value = '';
-                        divTwo.value = '';
-                        divResult.value = '';
-                        divAnswer.value = '';
+                        document.getElementById('calculator-div').reset();
                     }, 3000);
                     setTimeout(() => {
                         divHidden.style.display = "none";
