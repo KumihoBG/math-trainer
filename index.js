@@ -198,6 +198,22 @@ window.addEventListener('load', () => {
         });
     }
 
+    const result = Number(divOne.value) / Number(divTwo.value);
+    const checkResult = isWholeNumber(result);
+    if (checkResult === false) {
+        window.location.reload();
+    }
+
+    function isWholeNumber(value) {
+        let isWhole = false;
+        if (value % 1 === 0) {
+            isWhole = true;
+        } else {
+            isWhole = false;
+        }
+        return isWhole;
+    }
+
     // Divide numbers
     if (divBtn) {
         divBtn.addEventListener('click', (e) => {
