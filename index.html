@@ -61,18 +61,19 @@
                 </div>
                 <form class="calculator">
                     <h3>Умаляемо:</h3>
-                    <input class="num-one" type="text" name="num-one">
+                    <input id="sub-one" type="text" name="sub-one">
                     <h3>-</h3>
                     <h3>Умалител:</h3>
-                    <input class="num-two" type="text" name="num-two">
+                    <input id="sub-two" type="text" name="sub-two">
                     <hr class="line">
                     <label>Разлика - въведи разлика и виж дали отговорът ти е правилен:</label><br>
                     <div class="result-container">
-                        <input id="substr-result" name="result" type="text"><button class="submit" type="button">Предай
-                            отговор</button><br>
+                        <input id="substr-result" name="result" type="text">
+                        <button id="sub-button" type="button">Предай отговор</button><br>
                     </div>
                     <label>Верен отговор:</label><br>
                     <input id="substr-answer" name="answer" type="text" disabled>
+                    <div id="sub-result-hidden" style="display: none;"></div>
                     <div class="sign">-</div>
                 </form>
             </div>
@@ -89,23 +90,24 @@
                     умножението на число с 1 (единица) дава същото число.</p>
                 <form class="calculator">
                     <h3>Множител:</h3>
-                    <input class="num-one" type="text" name="num-one">
+                    <input id="mult-one" type="text" name="mult-one">
                     <h3>.</h3>
                     <h3>Множител:</h3>
-                    <input class="num-two" type="text" name="num-two">
+                    <input id="mult-two" type="text" name="mult-two">
                     <hr class="line">
                     <label>Произведение - въведи произведние и виж дали отговорът ти е правилен:</label><br>
                     <div class="result-container">
-                        <input id="mult-result" name="result" type="text"><button class="submit" type="button">Предай
-                            отговор</button><br>
+                        <input id="mult-result" name="result" type="text">
+                        <button id="mult-button" type="button">Предай отговор</button><br>
                     </div>
                     <label>Верен отговор:</label><br>
                     <input id="mult-answer" name="answer" type="text" disabled>
+                    <div id="mult-result-hidden" style="display: none;"></div>
                     <div class="sign">*</div>
                 </form>
             </div>
 
-            <div class="holder" id="devide">
+            <div class="holder" id="divide">
                 <h1>Деление на числа</h1>
                 <p>С него се определя колко пъти едно число се съдържа в друго.[1] Означава се със знака : (двоеточие)
                     или две точки с черта между тях ÷ (обелос). В калкулаторите и компютрите се използва знакът /
@@ -117,18 +119,18 @@
                     зa чacтнo. </p>
                 <form class="calculator">
                     <h3>Делимо:</h3>
-                    <input class="num-one" type="text" name="num-one">
+                    <input id="div-one" type="text" name="div-one">
                     <h3>:</h3>
                     <h3>Делител:</h3>
-                    <input class="num-two" type="text" name="num-two">
+                    <input id="div-two" type="text" name="div-two">
                     <hr class="line">
                     <label>Частно - въведи частно и виж дали отговорът ти е правилен:</label><br>
                     <div class="result-container">
-                        <input id="dev-result" name="result" type="text"><button class="submit" type="button">Предай
-                            отговор</button><br>
+                        <input id="div-result" name="result" type="text">
+                        <button id="div-button" type="button">Предай отговор</button><br>
                     </div>
                     <label>Верен отговор:</label><br>
-                    <input id="dev-answer" name="answer" type="text" disabled>
+                    <input id="div-answer" name="answer" type="text" disabled>
                     <div class="sign">:</div>
                 </form>
             </div>

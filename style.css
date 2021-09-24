@@ -69,6 +69,7 @@ label {
     grid-template-rows: repeat(2, 1fr);
     padding: 30px;
     grid-gap: 2rem;
+    padding: 40px;
 }
 
 .holder {
@@ -87,14 +88,24 @@ label {
     grid-row: 1;
 }
 
+#multiply {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+#divide {
+    grid-column: 2;
+    grid-row: 2;
+}
+
 #sum-result,
 #sum-answer,
 #substr-result,
 #substr-answer,
 #mult-result,
 #mult-answer,
-#dev-result,
-#dev-answer {
+#div-result,
+#div-answer {
     margin: 15px 0;
 }
 
@@ -104,14 +115,17 @@ label {
     margin-top: 2%;
 }
 
-#sum-result-hidden {
+#sum-result-hidden,
+#sub-result-hidden {
     background: #333333;
     color: #ffd633;
     font-size: 25px;
 }
 
 #sum-button,
-.submit {
+#sub-button,
+#mult-button,
+#div-button {
     display: block;
     flex-basis: 25%;
     background: #ffd633;
