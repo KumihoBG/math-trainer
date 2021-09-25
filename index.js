@@ -1,4 +1,40 @@
 window.addEventListener('load', () => {
+    setTimeout(() => {
+        document.querySelector('#loading').style.display = "none";
+    }, 10000);
+
+
+    // Divide numbers
+    const divOne = document.getElementById('div-one');
+    divOne.value = Math.floor(Math.random() * 9999) + 1;
+    const divTwo = document.getElementById('div-two');
+    divTwo.value = Math.floor(Math.random() * 99) + 1;
+    const divBtn = document.getElementById('div-button');
+    const divResult = document.getElementById('div-result');
+    const divAnswer = document.getElementById('div-answer');
+    const divHidden = document.getElementById('div-result-hidden');
+
+    if (divTwo.value == 0) {
+        divTwo.value = Math.floor(Math.random() * 99) + 1;
+    }
+
+    const result = Number(divOne.value) / Number(divTwo.value);
+    const checkResult = isWholeNumber(result);
+    if (checkResult === false) {
+        location.reload();
+        return false;
+    }
+
+    function isWholeNumber(value) {
+        let isWhole = false;
+        if (value % 1 === 0) {
+            isWhole = true;
+        } else {
+            isWhole = false;
+        }
+        return isWhole;
+    }
+
     // Sum numbers
     const sumOne = document.getElementById('sum-one');
     sumOne.value = Math.floor(Math.random() * 9999) + 1;
@@ -28,19 +64,6 @@ window.addEventListener('load', () => {
     const multResult = document.getElementById('mult-result');
     const multAnswer = document.getElementById('mult-answer');
     const multHidden = document.getElementById('mult-result-hidden');
-
-    // Divide numbers
-    const divOne = document.getElementById('div-one');
-    divOne.value = Math.floor(Math.random() * 9999) + 1;
-    const divTwo = document.getElementById('div-two');
-    divTwo.value = Math.floor(Math.random() * 99) + 1;
-    const divBtn = document.getElementById('div-button');
-    const divResult = document.getElementById('div-result');
-    const divAnswer = document.getElementById('div-answer');
-    const divHidden = document.getElementById('div-result-hidden');
-    if (divTwo.value == 0) {
-        divTwo.value = Math.floor(Math.random() * 99) + 1;
-    }
 
     // Sum numbers
     if (subBtn) {
@@ -196,21 +219,6 @@ window.addEventListener('load', () => {
 
             function sumNumbers() {
                 const result = Number(divOne.value) / Number(divTwo.value);
-                const checkResult = isWholeNumber(result);
-                if (checkResult === false) {
-                    window.location.reload();
-                }
-            
-                function isWholeNumber(value) {
-                    let isWhole = false;
-                    if (value % 1 === 0) {
-                        isWhole = true;
-                    } else {
-                        isWhole = false;
-                    }
-                    return isWhole;
-                }
-
                 const answer = Number(divResult.value);
                 if (divTwo.value == 0 && result == Infinity) {
                     return notify('Не може да се дели с нула!\n Моля, натисни F5, за да презаредиш страницата!');
