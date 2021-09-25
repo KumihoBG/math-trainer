@@ -7,7 +7,8 @@
 }
 
 body {
-  background: url("./images/bg.jpg") repeat center center/cover;
+  /* background: url("./images/bg.jpg") repeat center center/cover; */
+  background: linear-gradient(to bottom, #000, #332900);
   font-family: "Comfortaa", cursive;
   color: #eee;
   font-size: 15px;
