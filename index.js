@@ -1,6 +1,8 @@
 window.addEventListener('load', () => {
+    document.getElementById('wrapper').style.display = "none";
     setTimeout(() => {
-        document.querySelector('#loading').style.display = "none";
+        document.getElementById('loading').style.display = "none";
+        document.getElementById('wrapper').style.display = "block";
     }, 10000);
 
 
