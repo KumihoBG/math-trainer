@@ -112,7 +112,7 @@ label {
 .result-container {
   display: flex;
   flex-basis: 100%;
-  margin-top: 2%;
+  margin-top: 4%;
 }
 
 #sum-result-hidden,
@@ -131,13 +131,23 @@ label {
   display: block;
   flex-basis: 25%;
   background: #ffd633;
-  color: #333333;
+  color: #000;
   border: none;
   cursor: pointer;
   margin-left: 40px;
-  font-weight: 600;
+  letter-spacing: 1px;
+  font-weight: bold;
   text-transform: uppercase;
   border-radius: 10px;
+}
+
+#sum-button:hover,
+#sub-button:hover,
+#mult-button:hover,
+#div-button:hover {
+  background: #333333;
+  border: 1px solid #ffd633;
+  color: #ffd633;
 }
 
 .line {
@@ -208,4 +218,10 @@ label {
   100% {
     transform: scale(0);
   }
+}
+
+label i {
+    font-size: 30px;
+    color:#ffcc00;
+    margin: 0 10px;
 }

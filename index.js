@@ -3,39 +3,7 @@ window.addEventListener('load', () => {
     setTimeout(() => {
         document.getElementById('loading').style.display = "none";
         document.getElementById('wrapper').style.display = "block";
-    }, 10000);
-
-
-    // Divide numbers
-    const divOne = document.getElementById('div-one');
-    divOne.value = Math.floor(Math.random() * 9999) + 1;
-    const divTwo = document.getElementById('div-two');
-    divTwo.value = Math.floor(Math.random() * 99) + 1;
-    const divBtn = document.getElementById('div-button');
-    const divResult = document.getElementById('div-result');
-    const divAnswer = document.getElementById('div-answer');
-    const divHidden = document.getElementById('div-result-hidden');
-
-    if (divTwo.value == 0) {
-        divTwo.value = Math.floor(Math.random() * 99) + 1;
-    }
-
-    const result = Number(divOne.value) / Number(divTwo.value);
-    const checkResult = isWholeNumber(result);
-    if (checkResult === false) {
-        location.reload();
-        return false;
-    }
-
-    function isWholeNumber(value) {
-        let isWhole = false;
-        if (value % 1 === 0) {
-            isWhole = true;
-        } else {
-            isWhole = false;
-        }
-        return isWhole;
-    }
+    }, 8000);
 
     // Sum numbers
     const sumOne = document.getElementById('sum-one');
@@ -67,6 +35,35 @@ window.addEventListener('load', () => {
     const multAnswer = document.getElementById('mult-answer');
     const multHidden = document.getElementById('mult-result-hidden');
 
+    // Divide numbers
+    const divOne = document.getElementById('div-one');
+    divOne.value = Math.floor(Math.random() * 9999) + 1;
+    const divTwo = document.getElementById('div-two');
+    divTwo.value = Math.floor(Math.random() * 99) + 1;
+    const divBtn = document.getElementById('div-button');
+    const divResult = document.getElementById('div-result');
+    const divAnswer = document.getElementById('div-answer');
+    const divHidden = document.getElementById('div-result-hidden');
+
+    if (divTwo.value == 0) {
+        divTwo.value = Math.floor(Math.random() * 99) + 1;
+    }
+
+    const result = Number(divOne.value) / Number(divTwo.value);
+    const checkResult = isWholeNumber(result);
+    if (checkResult === false) {
+        window.location.reload();
+    }
+
+    function isWholeNumber(value) {
+        let isWhole = false;
+        if (value % 1 === 0) {
+            isWhole = true;
+        } else {
+            isWhole = false;
+        }
+        return isWhole;
+    }
     // Sum numbers
     if (subBtn) {
         sumBtn.addEventListener('click', (e) => {
@@ -236,7 +233,7 @@ window.addEventListener('load', () => {
                     divHidden.textContent = `Твоят отговор ${answer} е верен! Браво!`;
                     setTimeout(() => {
                         document.getElementById('calculator-div').reset();
-                    }, 3000);
+                    }, 5000);
                     setTimeout(() => {
                         divHidden.style.display = "none";
                         window.location.reload();
@@ -265,4 +262,8 @@ window.addEventListener('load', () => {
         });
     }
 });
+
+
+
+
 
