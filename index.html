@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Math Trainer for Alex</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="/style.css">
     <link rel="shortcut icon" href="/images/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/images/favicon.ico?" type="image/x-icon">
     <script src="https://kit.fontawesome.com/aa0145bdbf.js" crossorigin="anonymous"></script>
@@ -16,30 +16,30 @@
 <body>
     <section id="loading">
         <div class="loader">
-            <span style="--i:1"></span>
-            <span style="--i:2"></span>
-            <span style="--i:3"></span>
-            <span style="--i:4"></span>
-            <span style="--i:5"></span>
-            <span style="--i:6"></span>
-            <span style="--i:7"></span>
-            <span style="--i:8"></span>
-            <span style="--i:9"></span>
-            <span style="--i:10"></span>
-            <span style="--i:11"></span>
-            <span style="--i:12"></span>
-            <span style="--i:13"></span>
-            <span style="--i:14"></span>
-            <span style="--i:15"></span>
-            <span style="--i:16"></span>
-            <span style="--i:17"></span>
-            <span style="--i:18"></span>
-            <span style="--i:19"></span>
-            <span style="--i:20"></span>
+            <span style="--i: 1"></span>
+            <span style="--i: 2"></span>
+            <span style="--i: 3"></span>
+            <span style="--i: 4"></span>
+            <span style="--i: 5"></span>
+            <span style="--i: 6"></span>
+            <span style="--i: 7"></span>
+            <span style="--i: 8"></span>
+            <span style="--i: 9"></span>
+            <span style="--i: 10"></span>
+            <span style="--i: 11"></span>
+            <span style="--i: 12"></span>
+            <span style="--i: 13"></span>
+            <span style="--i: 14"></span>
+            <span style="--i: 15"></span>
+            <span style="--i: 16"></span>
+            <span style="--i: 17"></span>
+            <span style="--i: 18"></span>
+            <span style="--i: 19"></span>
+            <span style="--i: 20"></span>
         </div>
     </section>
-
-    <section id="wrapper">
+    
+    <section id="wrapper" style="display: none;">
         <img id="header" src="./images/header.png" alt="">
         <div class="container">
             <div class="holder" id="sum">
@@ -61,10 +61,11 @@
                     <h3>Събираемо:</h3>
                     <input id="sum-two" type="text" name="sum-two">
                     <hr class="line">
-                    <label><i class="far fa-smile-beam"></i> Сбор - въведи сбор и виж дали отговорът ти е правилен:</label><br>
+                    <label><i class="far fa-smile-beam"></i> Сбор - въведи сбор и виж дали отговорът ти е
+                        правилен:</label><br>
                     <div class="result-container">
-                    <input id="sum-result" name="sum-result" type="text">
-                    <button id="sum-button" type="button">Предай отговор</button><br>
+                        <input id="sum-result" name="sum-result" type="text">
+                        <button id="sum-button" type="button">Предай отговор</button><br>
                     </div>
                     <label>Верен отговор:</label><br>
                     <input id="sum-answer" name="sum-answer" type="text" disabled>
@@ -94,7 +95,8 @@
                     <h3>Умалител:</h3>
                     <input id="sub-two" type="text" name="sub-two">
                     <hr class="line">
-                    <label><i class="far fa-smile-beam"></i> Разлика - въведи разлика и виж дали отговорът ти е правилен:</label><br>
+                    <label><i class="far fa-smile-beam"></i> Разлика - въведи разлика и виж дали отговорът ти е
+                        правилен:</label><br>
                     <div class="result-container">
                         <input id="substr-result" name="result" type="text">
                         <button id="sub-button" type="button">Предай отговор</button><br>
@@ -123,7 +125,8 @@
                     <h3>Множител:</h3>
                     <input id="mult-two" type="text" name="mult-two">
                     <hr class="line">
-                    <label><i class="far fa-smile-beam"></i> Произведение - въведи произведние и виж дали отговорът ти е правилен:</label><br>
+                    <label><i class="far fa-smile-beam"></i> Произведение - въведи произведние и виж дали отговорът ти е
+                        правилен:</label><br>
                     <div class="result-container">
                         <input id="mult-result" name="result" type="text">
                         <button id="mult-button" type="button">Предай отговор</button><br>
@@ -152,14 +155,16 @@
                     <h3>Делител:</h3>
                     <input id="div-two" type="text" name="div-two">
                     <hr class="line">
-                    <label><i class="far fa-smile-beam"></i> Частно - въведи частно и виж дали отговорът ти е правилен:</label><br>
+                    <label><i class="far fa-smile-beam"></i> Частно - въведи частно и виж дали отговорът ти е
+                        правилен:</label><br>
                     <div class="result-container">
                         <input id="div-result" name="result" type="text">
                         <button id="div-button" type="button">Предай отговор</button><br>
                     </div>
                     <div class="show-info" style="display: none">
-                    <p id="show-info">Резултатът от делението не е цяло число. Обновявай страницата, докато не получиш задача с деление на цели числа.</p>
-                    <button id="refreshBtn" onClick="window.location.reload();">ОБНОВИ СТРАНИЦА</button>
+                        <p id="show-info">Резултатът от делението не е цяло число. Обновявай страницата, докато не
+                            получиш задача с деление на цели числа.</p>
+                        <button id="refreshBtn" onClick="window.location.reload();">ОБНОВИ СТРАНИЦА</button>
                     </div>
                     <label>Верен отговор:</label><br>
                     <input id="div-answer" name="answer" type="text" disabled>

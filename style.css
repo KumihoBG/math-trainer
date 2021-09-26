@@ -154,8 +154,8 @@ label {
 #refreshBtn {
   display: block;
   padding: 15px 30px;
-  background: #ffd633;
-  color: #000;
+  background: #ff8c66;
+  color: #fff;
   border: none;
   cursor: pointer;
   letter-spacing: 1px;
@@ -167,8 +167,8 @@ label {
 
 #refreshBtn:hover {
   background: #333333;
-  border: 1px solid #ffd633;
-  color: #ffd633;
+  border: 1px solid #ff8c66;
+  color: #ff8c66;
   padding: 14px 30px;
 }
 
@@ -254,5 +254,9 @@ label i {
 }
 
 .show-info p {
-  color: #00ff0a;
+  color: #ff8c66;
 }
+
+
+
+

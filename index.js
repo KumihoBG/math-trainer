@@ -3,7 +3,6 @@ let result = 0;
 window.addEventListener('load', () => {
     const wrapper = document.getElementById('wrapper');
     const loading = document.getElementById('loading');
-    wrapper.style.display = "none";
 
     setTimeout(() => {
         loading.style.display = "none";
@@ -68,8 +67,9 @@ function randomizeDivision(divOne, divTwo) {
 
     const checkResult = isWholeNumber(result);
     if (checkResult === false) {
-        const showInfo = document.querySelector('.show-info');
-        showInfo.style.display = "block";
+        // const showInfo = document.querySelector('.show-info');
+        // showInfo.style.display = "block";
+        window.location.reload();
     }
 
     function isWholeNumber(value) {
@@ -97,12 +97,12 @@ function action(button, numberOne, numberTwo, answerField, answerElement, hidden
                     case "mult-button": result = Number(numberOne.value) * Number(numberTwo.value); break;
                     case "div-button": result = Number(numberOne.value) / Number(numberTwo.value); break;
                 }
-                result = result.toFixed(2);
-                if (result.endsWith('0')) {
-                    result = Number(result.slice(result.length - 1));
-                } else {
-                    result = Number(result);
-                }
+                // result = result.toFixed(2);
+                // if (result.endsWith('0')) {
+                //     result = Number(result.slice(result.length - 1));
+                // } else {
+                //     result = Number(result);
+                // }
                 const resultToCheck = Number(answerField.value);
 
                 if (isNaN(answerField.value) || answerField.value === '') {
@@ -113,7 +113,7 @@ function action(button, numberOne, numberTwo, answerField, answerElement, hidden
                 if (result === resultToCheck) {
                     hiddenElement.style.display = "block";
                     answerElement.value = result.toString();
-                    hiddenElement.textContent = `Твоят отговор ${resultToCheck} е верен! Браво!`;
+                    hiddenElement.textContent = `Браво, твоят отговор ${resultToCheck} е верен! Изчакай, докато подготвим нови примери за теб!`;
                     setTimeout(() => {
                         document.getElementById('calculator-sum').reset();
                     }, 3000);
