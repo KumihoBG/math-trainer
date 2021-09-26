@@ -151,6 +151,27 @@ label {
   color: #ffd633;
 }
 
+#refreshBtn {
+  display: block;
+  padding: 15px 30px;
+  background: #ffd633;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 10px;
+  margin: 30px 10px;
+}
+
+#refreshBtn:hover {
+  background: #333333;
+  border: 1px solid #ffd633;
+  color: #ffd633;
+  padding: 14px 30px;
+}
+
 .line {
   margin: 20px 0;
 }
@@ -165,10 +186,10 @@ label {
 
 #loading {
   overflow: hidden;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   background: #042104;
   animation: animateBg 10s linear infinite;
 }
@@ -226,4 +247,12 @@ label i {
   font-size: 30px;
   color: #ffcc00;
   margin: 0 10px;
+}
+
+.show-info {
+  width: 50%;
+}
+
+.show-info p {
+  color: #00ff0a;
 }

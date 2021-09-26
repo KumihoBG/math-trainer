@@ -152,10 +152,14 @@
                     <h3>Делител:</h3>
                     <input id="div-two" type="text" name="div-two">
                     <hr class="line">
-                    <label><i class="far fa-smile-beam"></i></i> Частно - въведи частно и виж дали отговорът ти е правилен:</label><br>
+                    <label><i class="far fa-smile-beam"></i> Частно - въведи частно и виж дали отговорът ти е правилен:</label><br>
                     <div class="result-container">
                         <input id="div-result" name="result" type="text">
                         <button id="div-button" type="button">Предай отговор</button><br>
+                    </div>
+                    <div class="show-info" style="display: none">
+                    <p id="show-info">Резултатът от делението не е цяло число. Обновявай страницата, докато не получиш задача с деление на цели числа.</p>
+                    <button id="refreshBtn" onClick="window.location.reload();">ОБНОВИ СТРАНИЦА</button>
                     </div>
                     <label>Верен отговор:</label><br>
                     <input id="div-answer" name="answer" type="text" disabled>
