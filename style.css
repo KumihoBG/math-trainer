@@ -257,6 +257,18 @@ label i {
   color: #ff8c66;
 }
 
+#info {
+  text-align: center;
+  padding: 1% 25%;
+}
 
+/* Footer */
+footer {
+  background: linear-gradient(to bottom, #332900, #000);
+  padding: 1rem;
+  color: #eee;
+}
 
-
+#small {
+  text-align: center;
+}

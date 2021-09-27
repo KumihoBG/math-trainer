@@ -3,10 +3,12 @@ let result = 0;
 window.addEventListener('load', () => {
     const wrapper = document.getElementById('wrapper');
     const loading = document.getElementById('loading');
+    const footer = document.querySelector('footer');
 
     setTimeout(() => {
         loading.style.display = "none";
         wrapper.style.display = "block";
+        footer.style.display = "block";
     }, 5000);
     // Sum variables
     const sumOne = document.getElementById('sum-one');
