@@ -96,11 +96,12 @@ function action(button, numberOne, numberTwo, answerField, answerElement, remain
                     remainder = Number(numberOne.value) % Number(numberTwo.value);
                 }
 
-                answerElement.disabled = false;
-                remainderAnswer.disabled = false;
-
                 if (Number(answerField.value) === quotient && Number(remainderElement.value) == remainder) {
                     hiddenElement.style.display = "block";
+                    
+                    answerElement.disabled = false;
+                    remainderAnswer.disabled = false;
+
                     answerElement.value = quotient.toString();
                     remainderAnswer.value = remainder.toString();
                     hiddenElement.textContent = `Браво, твоят отговор частно ${quotient} с остатък ${remainder} е верен! Изчакай, докато подготвим нови примери за теб!`;
@@ -114,6 +115,8 @@ function action(button, numberOne, numberTwo, answerField, answerElement, remain
                 } else if (result === resultToCheck) {
                     if (remainderElement == undefined) {
                         hiddenElement.style.display = "block";
+                        answerElement.disabled = false;
+                        remainderAnswer.disabled = false;
                         answerElement.value = result.toString();
                         hiddenElement.textContent = `Браво, твоят отговор ${resultToCheck} е верен! Изчакай, докато подготвим нови примери за теб!`;
                         setTimeout(() => {
