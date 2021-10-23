@@ -157,9 +157,10 @@
                     <input id="div-two" type="text" name="div-two">
                     <hr class="line">
                     <label><i class="far fa-smile-beam"></i> Частно - въведи частно и виж дали отговорът ти е
-                        правилен:</label><br>
+                        правилен. Ако от делението има остатък, впиши и него в предвиденото поле:</label><br>
                     <div class="result-container">
-                        <input id="div-result" name="result" type="text">
+                        <input id="div-result" name="result" type="text" placeholder="Частно">
+                        <input id="div-remainder-result" name="remainder-result" type="text" placeholder="Остатък">
                         <button id="div-button" type="button">Предай отговор</button><br>
                     </div>
                     <div class="show-info" style="display: none">
@@ -168,7 +169,10 @@
                         <button id="refreshBtn" onClick="window.location.reload();">ОБНОВИ СТРАНИЦА</button>
                     </div>
                     <label>Верен отговор:</label><br>
-                    <input id="div-answer" name="answer" type="text" disabled>
+                    <label for="answer">Частно:</label>
+                    <input id="div-answer" name="answer" type="text" disabled><br>
+                    <label for="remainder">Остатък:</label>
+                    <input id="remainder" type="text" name="remainder" disabled>
                     <div id="div-result-hidden" style="display: none;"></div>
                     <div class="sign">:</div>
                 </form>

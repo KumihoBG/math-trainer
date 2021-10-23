@@ -39,93 +39,94 @@ window.addEventListener('load', () => {
     const divTwo = document.getElementById('div-two');
     const divBtn = document.getElementById('div-button');
     const divResult = document.getElementById('div-result');
-    const divAnswer = document.getElementById('div-answer');
+    let divAnswer = document.getElementById('div-answer');
+    let divRemainder = document.getElementById('div-remainder-result');
+    let remainderAnswer = document.getElementById('remainder');
     const divHidden = document.getElementById('div-result-hidden');
 
-    randomizeNumbers(sumOne, sumTwo, subOne, subTwo, multOne, multTwo);
-    randomizeDivision(divOne, divTwo);
+    randomizeNumbers(sumOne, sumTwo, subOne, subTwo, multOne, multTwo, divOne, divTwo);
     action(sumBtn, sumOne, sumTwo, sumResult, sumAnswer, sumHidden);
     action(subBtn, subOne, subTwo, subResult, subAnswer, subHidden);
     action(multBtn, multOne, multTwo, multResult, multAnswer, multHidden);
-    action(divBtn, divOne, divTwo, divResult, divAnswer, divHidden);
+    action(divBtn, divOne, divTwo, divResult, divAnswer, remainderAnswer, divHidden, divRemainder);
 });
 
-function randomizeNumbers(sumOne, sumTwo, subOne, subTwo, multOne, multTwo) {
+function randomizeNumbers(sumOne, sumTwo, subOne, subTwo, multOne, multTwo, divOne, divTwo) {
     sumOne.value = Math.floor(Math.random() * 9999) + 1;
     sumTwo.value = Math.floor(Math.random() * 99) + 1;
     subOne.value = Math.floor(Math.random() * 9999) + 1;
     subTwo.value = Math.floor(Math.random() * 99) + 1;
     multOne.value = Math.floor(Math.random() * 9999) + 1;
     multTwo.value = Math.floor(Math.random() * 99) + 1;
-}
-
-function randomizeDivision(divOne, divTwo) {
     divOne.value = Math.floor(Math.random() * 9999) + 1;
     divTwo.value = Math.floor(Math.random() * 99) + 1;
     if (divTwo.value == 0) {
         divTwo.value = Math.floor(Math.random() * 99) + 1;
     }
-    result = Number(divOne.value) / Number(divTwo.value);
-
-    const checkResult = isWholeNumber(result);
-    if (checkResult === false) {
-        // const showInfo = document.querySelector('.show-info');
-        // showInfo.style.display = "block";
-        window.location.reload();
-    }
-
-    function isWholeNumber(value) {
-        let isWhole = false;
-        if (value % 1 === 0) {
-            isWhole = true;
-        } else {
-            isWhole = false;
-        }
-        return isWhole;
-    }
 }
 
-function action(button, numberOne, numberTwo, answerField, answerElement, hiddenElement) {
-    // Sum numbers
+function action(button, numberOne, numberTwo, answerField, answerElement, remainderAnswer, hiddenElement, remainderElement) {
+    // Get result
     if (button) {
         button.addEventListener('click', (e) => {
             e.preventDefault();
             const currentTarget = e.currentTarget;
             console.log(currentTarget);
-            function sumNumbers() {
+            function getResult() {
                 switch (currentTarget.id) {
                     case "sum-button": result = Number(numberOne.value) + Number(numberTwo.value); break;
                     case "sub-button": result = Number(numberOne.value) - Number(numberTwo.value); break;
                     case "mult-button": result = Number(numberOne.value) * Number(numberTwo.value); break;
                     case "div-button": result = Number(numberOne.value) / Number(numberTwo.value); break;
                 }
-                // result = result.toFixed(2);
-                // if (result.endsWith('0')) {
-                //     result = Number(result.slice(result.length - 1));
-                // } else {
-                //     result = Number(result);
-                // }
+
                 const resultToCheck = Number(answerField.value);
 
                 if (isNaN(answerField.value) || answerField.value === '') {
                     return notify(`Подал си неправилни или липсващи данни! Въведи цифри!`, hiddenElement);
                 }
 
+                // Gets the result from the division, checks if remainder left
+                let quotient = 0;
+                let remainder = 0;
+                let checkResult = isWholeNumber(Number(numberOne.value), Number(numberTwo.value));
+
+                if (checkResult === false) {
+                    quotient = Math.floor(Number(numberOne.value) / Number(numberTwo.value));
+                    remainder = Number(numberOne.value) % Number(numberTwo.value);
+                }
+
                 answerElement.disabled = false;
-                if (result === resultToCheck) {
+                remainderAnswer.disabled = false;
+
+                if (Number(answerField.value) === quotient && Number(remainderElement.value) == remainder) {
                     hiddenElement.style.display = "block";
-                    answerElement.value = result.toString();
-                    hiddenElement.textContent = `Браво, твоят отговор ${resultToCheck} е верен! Изчакай, докато подготвим нови примери за теб!`;
+                    answerElement.value = quotient.toString();
+                    remainderAnswer.value = remainder.toString();
+                    hiddenElement.textContent = `Браво, твоят отговор частно ${quotient} с остатък ${remainder} е верен! Изчакай, докато подготвим нови примери за теб!`;
                     setTimeout(() => {
-                        document.getElementById('calculator-sum').reset();
+                        document.getElementById('calculator-div').reset();
                     }, 3000);
                     setTimeout(() => {
                         hiddenElement.style.display = "none";
                         window.location.reload();
                     }, 5000);
+                } else if (result === resultToCheck) {
+                    if (remainderElement == undefined) {
+                        hiddenElement.style.display = "block";
+                        answerElement.value = result.toString();
+                        hiddenElement.textContent = `Браво, твоят отговор ${resultToCheck} е верен! Изчакай, докато подготвим нови примери за теб!`;
+                        setTimeout(() => {
+                            document.getElementById('calculator-sum').reset();
+                        }, 3000);
+                        setTimeout(() => {
+                            hiddenElement.style.display = "none";
+                            window.location.reload();
+                        }, 5000);
+                    }
                 } else {
                     hiddenElement.style.display = "block";
-                    hiddenElement.textContent = `Твоят отговор ${resultToCheck} е грешен! Опитай отново!`;
+                    hiddenElement.textContent = `Твоят отговор е грешен! Опитай отново!`;
                     answerField.value = '';
                     answerElement.value = '';
                     setTimeout(() => {
@@ -134,7 +135,7 @@ function action(button, numberOne, numberTwo, answerField, answerElement, hidden
                 }
             }
 
-            sumNumbers();
+            getResult();
         });
     }
 }
@@ -146,4 +147,14 @@ function notify(message, element) {
         element.style.display = "none";
     }, 5000);
     return;
+}
+
+function isWholeNumber(valueOne, valueTwo) {
+    let isWhole = false;
+    if (valueOne % valueTwo === 0) {
+        isWhole = true;
+    } else {
+        isWhole = false;
+    }
+    return isWhole;
 }
