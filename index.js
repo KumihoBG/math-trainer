@@ -9,7 +9,7 @@ window.addEventListener('load', () => {
         loading.style.display = "none";
         wrapper.style.display = "block";
         footer.style.display = "block";
-    }, 5000);
+    }, 3990);
     // Sum variables
     const sumOne = document.getElementById('sum-one');
     const sumTwo = document.getElementById('sum-two');
@@ -45,10 +45,10 @@ window.addEventListener('load', () => {
     const divHidden = document.getElementById('div-result-hidden');
 
     randomizeNumbers(sumOne, sumTwo, subOne, subTwo, multOne, multTwo, divOne, divTwo);
-    action(sumBtn, sumOne, sumTwo, sumResult, sumAnswer, sumHidden);
-    action(subBtn, subOne, subTwo, subResult, subAnswer, subHidden);
-    action(multBtn, multOne, multTwo, multResult, multAnswer, multHidden);
-    action(divBtn, divOne, divTwo, divResult, divAnswer, remainderAnswer, divHidden, divRemainder);
+    action(sumBtn, sumOne, sumTwo, sumResult, sumAnswer, undefined, undefined, sumHidden);
+    action(subBtn, subOne, subTwo, subResult, subAnswer, undefined, undefined, subHidden);
+    action(multBtn, multOne, multTwo, multResult, multAnswer, undefined, undefined, multHidden);
+    action(divBtn, divOne, divTwo, divResult, divAnswer, remainderAnswer, divRemainder, divHidden);
 });
 
 function randomizeNumbers(sumOne, sumTwo, subOne, subTwo, multOne, multTwo, divOne, divTwo) {
@@ -65,7 +65,7 @@ function randomizeNumbers(sumOne, sumTwo, subOne, subTwo, multOne, multTwo, divO
     }
 }
 
-function action(button, numberOne, numberTwo, answerField, answerElement, remainderAnswer, hiddenElement, remainderElement) {
+function action(button, numberOne, numberTwo, answerField, answerElement, remainderAnswer, remainderElement, hiddenElement) {
     // Get result
     if (button) {
         button.addEventListener('click', (e) => {
@@ -95,16 +95,20 @@ function action(button, numberOne, numberTwo, answerField, answerElement, remain
                     quotient = Math.floor(Number(numberOne.value) / Number(numberTwo.value));
                     remainder = Number(numberOne.value) % Number(numberTwo.value);
                 }
+                let line = [];
 
                 if (Number(answerField.value) === quotient && Number(remainderElement.value) == remainder) {
                     hiddenElement.style.display = "block";
-                    
+
                     answerElement.disabled = false;
                     remainderAnswer.disabled = false;
 
                     answerElement.value = quotient.toString();
                     remainderAnswer.value = remainder.toString();
-                    hiddenElement.textContent = `Браво, твоят отговор частно ${quotient} с остатък ${remainder} е верен! Изчакай, докато подготвим нови примери за теб!`;
+                
+                    line.push(`Браво, твоят отговор частно ${quotient} с остатък ${remainder} е верен!`);
+                    line.push('Изчакай, докато подготвим нови примери за теб!');
+                    hiddenElement.textContent = line.join('\n');
                     setTimeout(() => {
                         document.getElementById('calculator-div').reset();
                     }, 3000);
@@ -115,10 +119,10 @@ function action(button, numberOne, numberTwo, answerField, answerElement, remain
                 } else if (result === resultToCheck) {
                     if (remainderElement == undefined) {
                         hiddenElement.style.display = "block";
-                        answerElement.disabled = false;
-                        remainderAnswer.disabled = false;
                         answerElement.value = result.toString();
-                        hiddenElement.textContent = `Браво, твоят отговор ${resultToCheck} е верен! Изчакай, докато подготвим нови примери за теб!`;
+                        line.push( `Браво, твоят отговор ${resultToCheck} е верен!`);
+                        line.push('Изчакай, докато подготвим нови примери за теб!');
+                        hiddenElement.textContent = line.join('\n');
                         setTimeout(() => {
                             document.getElementById('calculator-sum').reset();
                         }, 3000);
